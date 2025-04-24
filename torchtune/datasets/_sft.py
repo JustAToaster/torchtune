@@ -146,8 +146,6 @@ class SFTTransform(Transform):
     def __call__(self, sample: Mapping[str, Any]) -> Dict[str, Any]:
         if self._message_transform is not None:
             transformed_sample = self._message_transform(sample)
-            if "messages" in transformed_sample:
-                validate_messages(transformed_sample["messages"])
         else:
             transformed_sample = sample
 
